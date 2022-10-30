@@ -35,7 +35,7 @@ namespace PurpleBuzz_Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("PurpleBuzz_Backend.Models.CategoryComponent", b =>
@@ -65,7 +65,7 @@ namespace PurpleBuzz_Backend.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("CategoryComponents", (string)null);
+                    b.ToTable("CategoryComponents");
                 });
 
             modelBuilder.Entity("PurpleBuzz_Backend.Models.ContactCommunicationComponent", b =>
@@ -90,7 +90,7 @@ namespace PurpleBuzz_Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ContactCommunicationComponents", (string)null);
+                    b.ToTable("ContactCommunicationComponents");
                 });
 
             modelBuilder.Entity("PurpleBuzz_Backend.Models.ContactContextComponent", b =>
@@ -111,7 +111,7 @@ namespace PurpleBuzz_Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ContactContextComponent", (string)null);
+                    b.ToTable("ContactContextComponent");
                 });
 
             modelBuilder.Entity("PurpleBuzz_Backend.Models.ContactIntroComponent", b =>
@@ -136,7 +136,53 @@ namespace PurpleBuzz_Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ContactIntroComponent", (string)null);
+                    b.ToTable("ContactIntroComponent");
+                });
+
+            modelBuilder.Entity("PurpleBuzz_Backend.Models.FeaturedWorkComponent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FeaturedWorkComponent");
+                });
+
+            modelBuilder.Entity("PurpleBuzz_Backend.Models.FeaturedWorkComponentPhoto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("FeaturedWorkComponentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FeaturedWorkComponentId");
+
+                    b.ToTable("FeaturedWorkComponentPhotos");
                 });
 
             modelBuilder.Entity("PurpleBuzz_Backend.Models.PricingComponent", b =>
@@ -160,7 +206,7 @@ namespace PurpleBuzz_Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PricingComponents", (string)null);
+                    b.ToTable("PricingComponents");
                 });
 
             modelBuilder.Entity("PurpleBuzz_Backend.Models.RecentWorkComponent", b =>
@@ -185,7 +231,7 @@ namespace PurpleBuzz_Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RecentWorkComponents", (string)null);
+                    b.ToTable("RecentWorkComponents");
                 });
 
             modelBuilder.Entity("PurpleBuzz_Backend.Models.TeamMember", b =>
@@ -213,7 +259,7 @@ namespace PurpleBuzz_Backend.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("TeamMembers", (string)null);
+                    b.ToTable("TeamMembers");
                 });
 
             modelBuilder.Entity("PurpleBuzz_Backend.Models.CategoryComponent", b =>
@@ -227,9 +273,25 @@ namespace PurpleBuzz_Backend.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("PurpleBuzz_Backend.Models.FeaturedWorkComponentPhoto", b =>
+                {
+                    b.HasOne("PurpleBuzz_Backend.Models.FeaturedWorkComponent", "FeaturedWorkComponent")
+                        .WithMany("FeatureWorkComponentPhotos")
+                        .HasForeignKey("FeaturedWorkComponentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("FeaturedWorkComponent");
+                });
+
             modelBuilder.Entity("PurpleBuzz_Backend.Models.Category", b =>
                 {
                     b.Navigation("CategoryComponents");
+                });
+
+            modelBuilder.Entity("PurpleBuzz_Backend.Models.FeaturedWorkComponent", b =>
+                {
+                    b.Navigation("FeatureWorkComponentPhotos");
                 });
 #pragma warning restore 612, 618
         }

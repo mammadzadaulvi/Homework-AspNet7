@@ -21,7 +21,7 @@ namespace PurpleBuzz_Backend.Controllers
             var model = new ContactIndexViewModel
             {
                 ContactIntroComponent = contactIntroComponent,
-                ContactContextComponent=contactContextComponent,
+                ContactContextComponent =contactContextComponent,
                 ContactCommunicationComponent=contactCommunicationComponents
             };
             return View(model);
