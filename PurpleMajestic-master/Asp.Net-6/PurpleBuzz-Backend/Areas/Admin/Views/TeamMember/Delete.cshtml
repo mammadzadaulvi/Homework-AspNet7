@@ -1,0 +1,38 @@
+﻿@using PurpleBuzz_Backend.Models
+@model TeamMember
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-description">
+                            Delete Team member
+                        </p>
+
+                        <span>Fullname:</span>
+                        <span>@Model.Name @Model.Surname</span>
+
+                        <br/>
+                        <br/>
+
+                        <span>Position:</span>
+                        <span>@Model.Position</span>
+
+                        <br/>
+                        <br/>
+
+                        <div class="my-3">
+                            <img style="d-flex; align-items-start;width:100px; height:100px; aspect-ratio:1/1; object-fit:cover" src="~/assets/img/@Model.PhotoPath"/>
+                        </div>
+
+                        <form method="post" asp-action="deletecomponent" asp-controller="teammember" asp-area="admin" asp-route-id="@Model.id">
+                            <button onclick="confirm('Əminsiz mi?')" class="btn btn-danger">Silin</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

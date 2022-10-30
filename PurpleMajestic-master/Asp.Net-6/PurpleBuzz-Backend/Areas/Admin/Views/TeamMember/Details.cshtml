@@ -1,0 +1,33 @@
+﻿@using PurpleBuzz_Backend.Models
+@model TeamMember
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group ">
+                            <img style="d-flex; align-items-start;width:100px; height:100px; aspect-ratio:1/1; object-fit:cover" src="~/assets/img/@Model.PhotoPath" />
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Name">Name</label>
+                            <input class="form-control" asp-for="Name" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Surname">Surname</label>
+                            <input class="form-control" asp-for="Surname" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Position">Position</label>
+                            <input class="form-control" asp-for="Position" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

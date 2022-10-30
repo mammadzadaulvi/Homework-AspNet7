@@ -1,0 +1,45 @@
+﻿@using PurpleBuzz_Backend.Models
+@model TeamMember
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-description">
+                            Add Team member
+                        </p>
+
+                        <form method="post" enctype="multipart/form-data" asp-action="create" asp-controller="teammember" asp-area="admin">
+                            <div class="form-group">
+                                <label asp-for="Name">Name</label>
+                                <input class="form-control" asp-for="Name">
+                                <span class="text-danger" asp-validation-for="Name"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Surname">Surname</label>
+                                <input class="form-control" asp-for="Surname">
+                                <span class="text-danger" asp-validation-for="Surname"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Position">Position</label>
+                                <input class="form-control" asp-for="Position">
+                                <span class="text-danger" asp-validation-for="Position"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Photo">Photo</label>
+                                <input class="form-control" asp-for="Photo">
+                                <span class="text-danger" asp-validation-for="Photo"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
