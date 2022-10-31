@@ -1,5 +1,6 @@
 ﻿@using PurpleBuzz_Backend.ViewModels.Work;
 @model WorkIndexViewModel
+
 <div id="work_banner" class="banner-wrapper bg-light w-100 py-5">
     <div class="banner-vertical-center-work container text-light d-flex justify-content-center align-items-center py-5 p-0">
         <div class="banner-content col-lg-8 col-12 m-lg-auto text-center">
@@ -40,6 +41,9 @@
             <a class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4" data-filter=".graphic" href="#">Graphic</a>
         </div>
     </div>
+
+
+
 
     <div class="row projects gx-lg-5">
         <a href="work-single.html" class="col-sm-6 col-lg-4 text-decoration-none project marketing social business">
@@ -133,6 +137,9 @@
             </div>
         </a>
     </div>
+
+
+
     <div class="row">
         <div class="btn-toolbar justify-content-center pb-4" role="toolbar" aria-label="Toolbar with button groups">
             <div class="btn-group me-2" role="group" aria-label="First group">
@@ -152,40 +159,27 @@
 </section>
 <!-- End Our Work -->
 <!-- Start Feature Work -->
-<section class="bg-light py-5">
-    <div class="feature-work container my-4">
-        <div class="row d-flex d-flex align-items-center">
-            <div class="col-lg-5">
-                <h3 class="feature-work-title h4 text-muted light-300">Featured Work</h3>
-                <h1 class="feature-work-heading h2 py-3 semi-bold-600">Transform with us</h1>
-                <p class="feature-work-body text-muted light-300">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
-                    ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-                </p>
-                <p class="feature-work-footer text-muted light-300">
-                    Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur.
-                </p>
-            </div>
-            <div class="col-lg-6 offset-lg-1 align-left">
-                <div class="row">
-                    <a class="col" data-type="image" data-fslightbox="gallery" href="./assets/img/feature-work-1-large.jpg">
-                        <img class="img-fluid" src="./assets/img/feature-work-1.jpg">
-                    </a>
-                    <a class="col" data-type="image" data-fslightbox="gallery" href="./assets/img/feature-work-2-large.jpg">
-                        <img class="img-fluid" src="./assets/img/feature-work-2.jpg">
-                    </a>
+@if (Model.FeaturedWorkComponent != null)
+{
+    <section class="bg-light py-5">
+        <div class="feature-work container my-4">
+            <div class="row d-flex d-flex align-items-center">
+                <div class="col-lg-5">
+                    <h3 class="feature-work-title h4 text-muted light-300">@Model.FeaturedWorkComponent.Title</h3>
+                    @Html.Raw(Model.FeaturedWorkComponent.Description)
                 </div>
-                <div class="row pt-4">
-                    <a class="col" data-type="image" data-fslightbox="gallery" href="./assets/img/feature-work-3-large.jpg">
-                        <img class="img-fluid" src="./assets/img/feature-work-3.jpg">
-                    </a>
-                    <a class="col" data-type="image" data-fslightbox="gallery" href="./assets/img/feature-work-4-large.jpg">
-                        <img class="img-fluid" src="./assets/img/feature-work-4.jpg">
-                    </a>
+                <div class="col-lg-6 offset-lg-1 align-left">
+                    <div class="row">
+
+                        @foreach (var photo in Model.FeaturedWorkComponent.FeatureWorkComponentPhotos)
+                        {
+                            <a class="col" data-type="image" data-fslightbox="gallery" href="~/assets/img/@photo.Name">
+                                <img class="img-fluid" src="~/assets/img/@photo.Name">
+                            </a>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+}

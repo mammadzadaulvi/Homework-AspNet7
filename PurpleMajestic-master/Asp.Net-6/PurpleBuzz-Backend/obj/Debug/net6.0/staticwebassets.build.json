@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sf6bcv5H0uBO6okJa6noAMHP0SbwJOGHdzYAFTBJ11c=",
+  "Hash": "Cdr/4NT6tTcmXHryQ0Ss3ollxNkAL4KVXvhviMmM1eQ=",
   "Source": "PurpleBuzz-Backend",
   "BasePath": "_content/PurpleBuzz-Backend",
   "Mode": "Default",
@@ -1698,6 +1698,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\boxicons.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\Homework-AspNet7\\PurpleMajestic-master\\Asp.Net-6\\PurpleBuzz-Backend\\wwwroot\\assets\\img\\6438b828-ecb3-4ebd-844e-580903ef4fa1_images.jpeg",
+      "SourceId": "PurpleBuzz-Backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\Homework-AspNet7\\PurpleMajestic-master\\Asp.Net-6\\PurpleBuzz-Backend\\wwwroot\\",
+      "BasePath": "_content/PurpleBuzz-Backend",
+      "RelativePath": "assets/img/6438b828-ecb3-4ebd-844e-580903ef4fa1_images.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\6438b828-ecb3-4ebd-844e-580903ef4fa1_images.jpeg"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\Homework-AspNet7\\PurpleMajestic-master\\Asp.Net-6\\PurpleBuzz-Backend\\wwwroot\\assets\\img\\7f77f52b-df10-4b81-8ecc-ce40aee92c2a_Different.png",
