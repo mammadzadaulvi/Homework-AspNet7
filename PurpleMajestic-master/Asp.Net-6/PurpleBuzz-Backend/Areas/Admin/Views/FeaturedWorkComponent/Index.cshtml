@@ -1,0 +1,47 @@
+﻿@using PurpleBuzz_Backend.Areas.Admin.ViewModels.FeaturedWorkComponent
+@model FeaturedWorkComponentIndexViewModel
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Featured Work Component</h4>
+                        @{
+                            @if (Model.FeaturedWorkComponent != null)
+                            {
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Title</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>@Model.FeaturedWorkComponent.Id</td>
+                                                <td>@Model.FeaturedWorkComponent.Title</td>
+                                                <td>
+                                                    <a class="btn btn-primary " asp-action="update" asp-controller="featuredworkcomponent" asp-area="admin" asp-route-id=@Model.FeaturedWorkComponent.Id>Update</a>
+                                                    <a class="btn btn-primary btn-danger " onclick="confirm('eminsinizmi?')" asp-action="delete" asp-controller="featuredworkcomponent" asp-area="admin" asp-route-id=@Model.FeaturedWorkComponent.Id>Delete</a>
+                                                    <a class="btn btn-primary btn-details " asp-action="details" asp-controller="featuredworkcomponent" asp-area="admin" asp-route-id=@Model.FeaturedWorkComponent.Id>Details</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+                            else
+                            {
+                                <a class="btn btn-primary" asp-action="create" asp-controller="featuredworkcomponent" asp-area="admin">CREATE Featured Work Component</a>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
